@@ -1,0 +1,16 @@
+.App {
+  text-align: center;
+}
+
+.center{
+  display: flex;
+  justify-content: center;
+}
+.particles{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;  /* these properties make sure that the particles background is fullscreen */
+  z-index: -1; /* sets the background behind everything else */
+}

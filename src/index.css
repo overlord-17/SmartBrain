@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+  font-family: "Open Sans", Courier, monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: rgba(0, 0, 0, 0) linear-gradient(to right, rgb(18, 217, 233), rgb(32, 123, 223)) repeat scroll 0% 0%;;
+}
+.button{
+  cursor: pointer;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
