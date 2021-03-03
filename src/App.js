@@ -80,7 +80,7 @@ class App extends Component {
         })
       })
       .then(response => response.json())
-      // .then(response => {
+      .then(response => {
       //   if (response) {
       //     fetch('https://stormy-lowlands-09387.herokuapp.com/image', {
       //       method: 'put',
