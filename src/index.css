@@ -3,7 +3,7 @@ body {
   font-family: "Open Sans" ,Courier, monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: rgba(0, 0, 0, 0) linear-gradient(to right, rgb(18, 217, 233), rgb(32, 123, 223)) repeat scroll 0% 0%;;
+  background: rgba(0, 0, 0, 0) linear-gradient(to right, rgb(5, 222, 239), rgb(37, 91, 218)) repeat scroll 0% 0%;
 }
 .button{
   cursor: pointer;
