@@ -17,3 +17,5 @@ A fully responsive PERN stack web app that uses a third-party API to detect face
 ## APIs Used
 ### Clarifai
 ### SmartBrain API
+
+SmartBrain API repo [https://github.com/overlord-17/SmartBrain-API]
