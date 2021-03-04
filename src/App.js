@@ -5,7 +5,7 @@ import Navigation from './components/Navigation/Navigation';
 import Signin from './components/Signin/Signin';
 import Register from './components/Register/Register';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
-// import Rank from './components/Rank/Rank';
+import Rank from './components/Rank/Rank';
 import './App.css';
 
 const particlesOptions = {
@@ -30,6 +30,7 @@ const initialState = {
     id: '',
     name: '',
     email: '',
+    entries: 0,
     joined: ''
   }
 }
@@ -45,6 +46,7 @@ class App extends Component {
       id: data.id,
       name: data.name,
       email: data.email,
+      entries: data.entries,
       joined: data.joined
     }})
   }
@@ -72,7 +74,7 @@ class App extends Component {
 
   onButtonSubmit = () => {
     this.setState({imageUrl: this.state.input});
-      fetch('https://stormy-lowlands-09387.herokuapp.com/imageurl', {
+      fetch('http://localhost:3000/imageurl', {
         method: 'post',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -81,21 +83,21 @@ class App extends Component {
       })
       .then(response => response.json())
       .then(response => {
-      //   if (response) {
-      //     fetch('https://stormy-lowlands-09387.herokuapp.com/image', {
-      //       method: 'put',
-      //       headers: {'Content-Type': 'application/json'},
-      //       body: JSON.stringify({
-      //         id: this.state.user.id
-      //       })
-      //     })
-      //       // .then(response => response.json())
-      //       // .then(count => {
-      //       //   this.setState(Object.assign(this.state.user, { entries: count}))
-      //       // })
-      //       // .catch(console.log)
+        if (response) {
+          fetch('http://localhost:3000/image', {
+            method: 'put',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+              id: this.state.user.id
+            })
+          })
+            .then(response => response.json())
+            .then(count => {
+              this.setState(Object.assign(this.state.user, { entries: count}))
+            })
+            .catch(console.log)
 
-      //   }
+        }
         this.displayFaceBox(this.calculateFaceLocation(response))
       })
       .catch(err => console.log(err));
@@ -120,11 +122,10 @@ class App extends Component {
         <Navigation isSignedIn={isSignedIn} onRouteChange={this.onRouteChange} />
         { route === 'home'
           ? <div>
-              {/* <Logo />
               <Rank
                 name={this.state.user.name}
                 entries={this.state.user.entries}
-              /> */}
+              />
               <ImageLinkForm
                 onInputChange={this.onInputChange}
                 onButtonSubmit={this.onButtonSubmit}
